@@ -1,0 +1,95 @@
+[2025-07-06 03:35:12,570] ERROR log_exception() L875  Exception on /exercicios [GET] - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
+Traceback (most recent call last):
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+  File "C:\Users\camil\Documents\MVP\meu_app_api\app.py", line 151, in get_exercicios
+    exercicios = session.query(Exercicio).all()
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\query.py", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ~~~~~~~~~~^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\query.py", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+        params,
+        ^^^^^^^
+        execution_options={"_sa_orm_load_options": self.load_options},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2241, in _execute_internal
+    conn = self._connection_for_bind(bind)
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2110, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 1189, in _connection_for_bind
+    conn = bind.connect()
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 3273, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 3297, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\impl.py", line 168, in _do_get
+    raise exc.TimeoutError(
+    ...<4 lines>...
+    )
+sqlalchemy.exc.TimeoutError: QueuePool limit of size 5 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+[2025-07-06 03:35:12,588] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:35:12] "[35m[1mGET /treinos HTTP/1.1[0m" 500 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:35:12,601] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:35:12] "[35m[1mGET /exercicios HTTP/1.1[0m" 500 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:35:33,181] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.68.100:5000 - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:35:33,181] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:37:54,641] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:37:54] "GET /exercicios HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:37:54,660] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:37:54] "[33mGET /img/agachamento.png HTTP/1.1[0m" 404 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:37:54,663] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:37:54] "GET /treinos HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:37:54,668] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:37:54] "[33mGET /img/supino.png HTTP/1.1[0m" 404 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:37:54,670] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:37:54] "[33mGET /img/remada.png HTTP/1.1[0m" 404 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:37:54,671] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:37:54] "[33mGET /img/rosca.png HTTP/1.1[0m" 404 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:37:54,833] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:37:54] "[36mGET /static/uploads/WhatsApp_Image_2025-07-03_at_10.46.25_4bfc8eac-2.jpg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:37:54,834] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:37:54] "[36mGET /static/uploads/DSC_0371-2.jpg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:37:54,835] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:37:54] "[36mGET /static/uploads/DSC_0765.jpg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:38:20,192] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:38:20] "GET /exercicios HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:38:20,203] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:38:20] "GET /treinos HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:38:20,216] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:38:20] "[33mGET /img/agachamento.png HTTP/1.1[0m" 404 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:38:20,218] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:38:20] "[33mGET /img/remada.png HTTP/1.1[0m" 404 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:38:20,220] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:38:20] "[33mGET /img/rosca.png HTTP/1.1[0m" 404 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:38:20,222] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:38:20] "[33mGET /img/supino.png HTTP/1.1[0m" 404 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
