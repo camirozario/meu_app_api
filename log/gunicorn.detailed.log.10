@@ -1,17 +1,4 @@
-[2025-07-06 03:34:19,096] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:34:19] "[36mGET /static/uploads/DSC_0765.jpg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:34:19,101] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:34:19] "[36mGET /static/uploads/WhatsApp_Image_2025-07-03_at_10.46.25_4bfc8eac-2.jpg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:34:19,103] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:34:19] "[36mGET /static/uploads/DSC_0371-2.jpg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:34:21,636] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:34:21] "GET /exercicios HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:34:21,637] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:34:21] "GET /exercicios HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:34:21,644] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:34:21] "GET /treinos HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:34:21,668] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:34:21] "[33mGET /img/agachamento.png HTTP/1.1[0m" 404 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:34:21,669] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:34:21] "[33mGET /img/supino.png HTTP/1.1[0m" 404 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:34:21,670] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:34:21] "[33mGET /img/remada.png HTTP/1.1[0m" 404 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:34:21,671] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:34:21] "[36mGET /static/uploads/DSC_0765.jpg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:34:21,673] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:34:21] "[33mGET /img/rosca.png HTTP/1.1[0m" 404 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:34:21,674] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:34:21] "[36mGET /static/uploads/WhatsApp_Image_2025-07-03_at_10.46.25_4bfc8eac-2.jpg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:34:21,684] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:34:21] "[36mGET /static/uploads/DSC_0371-2.jpg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:34:53,014] ERROR log_exception() L875  Exception on /treinos [GET] - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
+[2025-07-06 03:35:10,658] ERROR log_exception() L875  Exception on /treinos [GET] - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
 Traceback (most recent call last):
   File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -84,3 +71,5 @@ Traceback (most recent call last):
     ...<4 lines>...
     )
 sqlalchemy.exc.TimeoutError: QueuePool limit of size 5 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+[2025-07-06 03:35:10,676] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:35:10] "[35m[1mGET /exercicios HTTP/1.1[0m" 500 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:35:10,686] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:35:10] "[35m[1mGET /treinos HTTP/1.1[0m" 500 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  

@@ -1,35 +1,69 @@
-# Minha API
+# 🏋️ Workout Builder API
 
-Este pequeno projeto faz parte do material diático da Disciplina **Desenvolvimento Full Stack Básico** 
+Uma API RESTful para gerenciamento de treinos personalizados, com suporte a exercícios com imagem, descrições e estrutura completa para criação e consulta de treinos. Foi feita como MVP para a pós de Desenvolvimento FullStack faculdade PUCRIO.
+---
 
-O objetivo aqui é ilutsrar o conteúdo apresentado ao longo das três aulas da disciplina.
+## 🚀 Funcionalidades
+
+- ✅ Adicionar, listar, editar e excluir **exercícios**
+- 🖼️ Upload de imagem (thumbnail) para os exercícios
+- 🏋️ Criar treinos personalizados com múltiplos exercícios, sets e reps
+- 📘 Documentação interativa gerada com **Swagger UI** (`/openapi/swagger`)
+- 🔒 CORS habilitado para integração com front-end
+- 🔧 Base em **Flask**, **SQLAlchemy**, **Pydantic** e **Flask-OpenAPI3**
 
 ---
-## Como executar 
 
+## 📂 Estrutura do Projeto
 
-Será necessário ter todas as libs python listadas no `requirements.txt` instaladas.
-Após clonar o repositório, é necessário ir ao diretório raiz, pelo terminal, para poder executar os comandos descritos abaixo.
+meu_app_api/
+│
+├── app.py # Arquivo principal com as rotas
+├── model/ # Modelos do SQLAlchemy
+│ ├── init.py
+│ ├── base.py
+│ ├── treino.py
+│ ├── treino_exercicio.py
+│ └── exercicio.py
+├── schemas/ # Schemas Pydantic
+│ ├── init.py
+│ ├── treino.py
+│ ├── exercicio.py
+│ └── error.py
+├── static/uploads/ # Imagens de exercícios
+├── database/db.sqlite3 # Banco SQLite
+├── logger.py
+└── requirements.txt
 
-> É fortemente indicado o uso de ambientes virtuais do tipo [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html).
+yaml
+Copy
+Edit
 
-```
-(env)$ flask --app app run --host 0.0.0.0 --port 5000
-```
+---
 
-Este comando instala as dependências/bibliotecas, descritas no arquivo `requirements.txt`.
+## 📦 Instalação
 
-Para executar a API  basta executar:
+1. Clone este repositório:
 
-```
-(env)$ flask run --host 0.0.0.0 --port 5000
-```
+```bash
+git clone https://github.com/seu-usuario/workout-builder-api.git
+cd workout-builder-api
+Crie um ambiente virtual:
 
-Em modo de desenvolvimento é recomendado executar utilizando o parâmetro reload, que reiniciará o servidor
-automaticamente após uma mudança no código fonte. 
+bash
+Copy
+Edit
+python -m venv venv
+source venv/bin/activate  # ou venv\Scripts\activate no Windows
+Instale as dependências:
 
-```
-(env)$ flask run --host 0.0.0.0 --port 5000 --reload
-```
+bash
+Copy
+Edit
+pip install -r requirements.txt
+Execute a aplicação:
 
-Abra o [http://localhost:5000/#/](http://localhost:5000/#/) no navegador para verificar o status da API em execução.
+bash
+Copy
+Edit
+flask --app app run --host 0.0.0.0 --port 5000

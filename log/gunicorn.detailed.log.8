@@ -1,4 +1,4 @@
-[2025-07-06 03:35:10,658] ERROR log_exception() L875  Exception on /exercicios [GET] - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
+[2025-07-06 03:35:11,682] ERROR log_exception() L875  Exception on /treinos [GET] - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
 Traceback (most recent call last):
   File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,8 +14,8 @@ Traceback (most recent call last):
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
   File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
     response = func(**func_kwargs)
-  File "C:\Users\camil\Documents\MVP\meu_app_api\app.py", line 151, in get_exercicios
-    exercicios = session.query(Exercicio).all()
+  File "C:\Users\camil\Documents\MVP\meu_app_api\app.py", line 162, in get_treinos
+    treinos = session.query(Treino).all()
   File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\query.py", line 2704, in all
     return self._iter().all()  # type: ignore
            ~~~~~~~~~~^^
@@ -71,3 +71,5 @@ Traceback (most recent call last):
     ...<4 lines>...
     )
 sqlalchemy.exc.TimeoutError: QueuePool limit of size 5 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+[2025-07-06 03:35:11,705] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:35:11] "[35m[1mGET /exercicios HTTP/1.1[0m" 500 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-07-06 03:35:11,718] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:35:11] "[35m[1mGET /treinos HTTP/1.1[0m" 500 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
