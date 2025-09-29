@@ -1,4 +1,4 @@
-# 🏋️ Workout Builder API
+# 🏋️ POWER PLAN API
 
 Uma API RESTful para gerenciamento de treinos personalizados, com suporte a exercícios com imagem, descrições e estrutura completa para criação e consulta de treinos.  
 Foi desenvolvida como MVP para a pós-graduação em **Desenvolvimento FullStack - PUC-Rio**.
