@@ -1,0 +1,92 @@
+[2025-09-28 22:18:09,436] ERROR log_exception() L875  Exception on /treinos [GET] - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
+Traceback (most recent call last):
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+  File "C:\Users\camil\Documents\0_Code\PUC-RIO\Dev Full-Stack\Sprint 3\MVP\meu_app_api\app.py", line 357, in get_treinos
+    session.commit()
+       ~~~~~~~~~~~^^
+  File "C:\Users\camil\Documents\0_Code\PUC-RIO\Dev Full-Stack\Sprint 3\MVP\meu_app_api\schemas\treino.py", line 43, in apresenta_treinos
+    "treinos": [apresenta_treino(treino) for treino in treinos]
+                ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\camil\Documents\0_Code\PUC-RIO\Dev Full-Stack\Sprint 3\MVP\meu_app_api\schemas\treino.py", line 30, in apresenta_treino
+    "total_exercicios": len(treino.exercicios_associados),
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\attributes.py", line 1121, in _fire_loader_callables
+    return self.callable_(state, passive)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\strategies.py", line 922, in _load_for_state
+    raise orm_exc.DetachedInstanceError(
+    ...<3 lines>...
+    )
+sqlalchemy.orm.exc.DetachedInstanceError: Parent instance <Treino at 0x1e6a073b460> is not bound to a Session; lazy load operation of attribute 'exercicios_associados' cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+[2025-09-28 22:18:09,452] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 22:18:09] "[35m[1mGET /treinos HTTP/1.1[0m" 500 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 22:18:10,273] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 22:18:10] "GET /exercicios/todos?page=1&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 22:18:10,595] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 22:18:10] "[36mGET /static/uploads/download.jpeg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 22:18:10,595] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 22:18:10] "[36mGET /static/uploads/download_1.jpeg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 22:18:10,596] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 22:18:10] "[36mGET /static/uploads/supino_63635.webp HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 22:18:15,706] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 22:18:15] "OPTIONS /treino HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 22:18:16,035] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 22:18:16] "POST /treino HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 22:18:17,543] ERROR log_exception() L875  Exception on /treinos [GET] - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
+Traceback (most recent call last):
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+  File "C:\Users\camil\Documents\0_Code\PUC-RIO\Dev Full-Stack\Sprint 3\MVP\meu_app_api\app.py", line 357, in get_treinos
+    session.commit()
+       ~~~~~~~~~~~^^
+  File "C:\Users\camil\Documents\0_Code\PUC-RIO\Dev Full-Stack\Sprint 3\MVP\meu_app_api\schemas\treino.py", line 43, in apresenta_treinos
+    "treinos": [apresenta_treino(treino) for treino in treinos]
+                ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\camil\Documents\0_Code\PUC-RIO\Dev Full-Stack\Sprint 3\MVP\meu_app_api\schemas\treino.py", line 30, in apresenta_treino
+    "total_exercicios": len(treino.exercicios_associados),
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\attributes.py", line 1121, in _fire_loader_callables
+    return self.callable_(state, passive)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\strategies.py", line 922, in _load_for_state
+    raise orm_exc.DetachedInstanceError(
+    ...<3 lines>...
+    )
+sqlalchemy.orm.exc.DetachedInstanceError: Parent instance <Treino at 0x1e6a094fbd0> is not bound to a Session; lazy load operation of attribute 'exercicios_associados' cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+[2025-09-28 22:18:17,546] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 22:18:17] "[35m[1mGET /treinos HTTP/1.1[0m" 500 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 22:18:39,479] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.68.114:5000 - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 22:18:39,480] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 22:18:45,823] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 22:18:45] "GET /treinos HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 22:18:46,727] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 22:18:46] "GET /exercicios/todos?page=1&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 22:18:47,232] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 22:18:47] "[36mGET /static/uploads/supino_63635.webp HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  

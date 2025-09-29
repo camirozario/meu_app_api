@@ -359,6 +359,47 @@ def add_treino(body: TreinoSchema):
     except Exception as e:
         logger.error(f"Erro ao criar treino: {e}")
         return {"mesage": f"Erro ao criar treino: {e}"}, 400
+    
+@app.delete('/treino', tags=[treino_tag],
+            responses={"200": {"description": "Treino removido"},
+                       "404": ErrorSchema})
+def delete_treino_qs():
+    """DELETE /treino?id=123"""
+    id = request.args.get("id", type=int)
+    if not id:
+        return {"mesage": "Parâmetro 'id' é obrigatório."}, 400
+    return _delete_treino_by_id(id)
+
+
+@app.delete('/treino/<int:id>', tags=[treino_tag],
+            responses={"200": {"description": "Treino removido"},
+                       "404": ErrorSchema})
+def delete_treino_path(id: int):
+    """DELETE /treino/123"""
+    return _delete_treino_by_id(id)
+
+
+def _delete_treino_by_id(id: int):
+    session = Session()
+    try:
+        treino = session.query(Treino).filter(Treino.id == id).first()
+        if not treino:
+            return {"mesage": "Treino não encontrado."}, 404
+
+        # remove associações (caso não haja cascade no modelo)
+        session.query(TreinoExercicio).filter(
+            TreinoExercicio.treino_id == treino.id
+        ).delete(synchronize_session=False)
+
+        session.delete(treino)
+        session.commit()
+        return {"mesage": "Treino removido", "id": id}, 200
+    except Exception as e:
+        session.rollback()
+        return {"mesage": f"Erro ao remover treino: {str(e)}"}, 400
+    finally:
+        session.close()
+
 
 
 # ---------------- SEED INICIAL ----------------
