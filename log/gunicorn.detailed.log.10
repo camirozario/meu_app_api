@@ -1,75 +1,39 @@
-[2025-07-06 03:35:10,658] ERROR log_exception() L875  Exception on /treinos [GET] - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
-Traceback (most recent call last):
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ~^^^^^^^^^^^^^^^^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
-    response = func(**func_kwargs)
-  File "C:\Users\camil\Documents\MVP\meu_app_api\app.py", line 162, in get_treinos
-    treinos = session.query(Treino).all()
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\query.py", line 2704, in all
-    return self._iter().all()  # type: ignore
-           ~~~~~~~~~~^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\query.py", line 2857, in _iter
-    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
-                                                  ~~~~~~~~~~~~~~~~~~~~^
-        statement,
-        ^^^^^^^^^^
-        params,
-        ^^^^^^^
-        execution_options={"_sa_orm_load_options": self.load_options},
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
-    return self._execute_internal(
-           ~~~~~~~~~~~~~~~~~~~~~~^
-        statement,
-        ^^^^^^^^^^
-    ...<4 lines>...
-        _add_event=_add_event,
-        ^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2241, in _execute_internal
-    conn = self._connection_for_bind(bind)
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2110, in _connection_for_bind
-    return trans._connection_for_bind(engine, execution_options)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<string>", line 2, in _connection_for_bind
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 1189, in _connection_for_bind
-    conn = bind.connect()
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 3273, in connect
-    return self._connection_cls(self)
-           ~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
-    self._dbapi_connection = engine.raw_connection()
-                             ~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 3297, in raw_connection
-    return self.pool.connect()
-           ~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
-    return _ConnectionFairy._checkout(self)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
-    fairy = _ConnectionRecord.checkout(pool)
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
-    rec = pool._do_get()
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\impl.py", line 168, in _do_get
-    raise exc.TimeoutError(
-    ...<4 lines>...
-    )
-sqlalchemy.exc.TimeoutError: QueuePool limit of size 5 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
-[2025-07-06 03:35:10,676] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:35:10] "[35m[1mGET /exercicios HTTP/1.1[0m" 500 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 03:35:10,686] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 03:35:10] "[35m[1mGET /treinos HTTP/1.1[0m" 500 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 20:16:47,619] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 20:16:47] "OPTIONS /exercicio HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 20:16:47,893] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 20:16:47] "POST /exercicio HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 20:16:56,542] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 20:16:56] "OPTIONS /exercicio HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 20:16:56,870] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 20:16:56] "POST /exercicio HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 20:17:06,555] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 20:17:06] "GET /treinos HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 20:17:07,466] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 20:17:07] "GET /exercicios/todos?page=1&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 20:17:08,786] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 20:17:08] "GET /exercicios/todos?page=1&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 20:17:08,798] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 20:17:08] "GET /static/uploads/download_1.jpeg HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 20:17:08,799] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 20:17:08] "GET /static/uploads/download.jpeg HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 20:17:08,799] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 20:17:08] "GET /static/uploads/supino_63635.webp HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:19:09,795] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:19:09] "GET /treinos HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:19:10,717] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:19:10] "GET /exercicios/todos?page=1&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:19:11,039] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:19:11] "GET /static/uploads/download_1.jpeg HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:19:11,040] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:19:11] "GET /static/uploads/download.jpeg HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:19:11,040] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:19:11] "GET /static/uploads/supino_63635.webp HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:19:14,613] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:19:14] "GET /exercicios/todos?page=2&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:36:32,084] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:36:32] "GET /exercicios/todos?page=3&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:36:32,988] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:36:32] "GET /exercicios/todos?page=4&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:36:34,895] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:36:34] "GET /exercicios/todos?page=5&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:36:36,796] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:36:36] "GET /exercicios/todos?page=6&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:40:38,867] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:40:38] "GET /treinos HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:40:39,521] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:40:39] "GET /exercicios/todos?page=1&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:40:39,848] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:40:39] "[36mGET /static/uploads/download_1.jpeg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:40:39,848] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:40:39] "[36mGET /static/uploads/download.jpeg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:40:39,849] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:40:39] "[36mGET /static/uploads/supino_63635.webp HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:40:48,092] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:40:48] "OPTIONS /treino?id=5 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:40:48,415] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:40:48] "[31m[1mDELETE /treino?id=5 HTTP/1.1[0m" 405 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:40:51,355] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:40:51] "OPTIONS /treino?id=6 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:40:51,667] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:40:51] "[31m[1mDELETE /treino?id=6 HTTP/1.1[0m" 405 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:41:11,971] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:41:11] "GET /exercicios/todos?page=1&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:41:12,304] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:41:12] "[36mGET /static/uploads/download.jpeg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:41:12,305] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:41:12] "[36mGET /static/uploads/download_1.jpeg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:41:12,305] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:41:12] "[36mGET /static/uploads/supino_63635.webp HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:41:44,856] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:41:44] "GET /treinos HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:41:45,372] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:41:45] "GET /exercicios/todos?page=1&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:41:45,682] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:41:45] "[36mGET /static/uploads/download_1.jpeg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:41:45,683] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:41:45] "[36mGET /static/uploads/download.jpeg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:41:45,683] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:41:45] "[36mGET /static/uploads/supino_63635.webp HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:41:50,245] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:41:50] "OPTIONS /treino?id=2 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  

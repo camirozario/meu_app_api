@@ -46,5 +46,4 @@ def apresenta_exercicio(exercicio: Exercicio):
         "musculo": exercicio.musculo,
         "descricao": exercicio.descricao,
         "thumbnail": exercicio.thumbnail,
-        "treino_id": exercicio.treino_id
     }

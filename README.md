@@ -1,6 +1,8 @@
 # 🏋️ Workout Builder API
 
-Uma API RESTful para gerenciamento de treinos personalizados, com suporte a exercícios com imagem, descrições e estrutura completa para criação e consulta de treinos. Foi feita como MVP para a pós de Desenvolvimento FullStack faculdade PUCRIO.
+Uma API RESTful para gerenciamento de treinos personalizados, com suporte a exercícios com imagem, descrições e estrutura completa para criação e consulta de treinos.  
+Foi desenvolvida como MVP para a pós-graduação em **Desenvolvimento FullStack - PUC-Rio**.
+
 ---
 
 ## 🚀 Funcionalidades
@@ -18,52 +20,76 @@ Uma API RESTful para gerenciamento de treinos personalizados, com suporte a exer
 
 meu_app_api/
 │
-├── app.py # Arquivo principal com as rotas
-├── model/ # Modelos do SQLAlchemy
-│ ├── init.py
-│ ├── base.py
-│ ├── treino.py
-│ ├── treino_exercicio.py
-│ └── exercicio.py
-├── schemas/ # Schemas Pydantic
-│ ├── init.py
-│ ├── treino.py
-│ ├── exercicio.py
-│ └── error.py
-├── static/uploads/ # Imagens de exercícios
-├── database/db.sqlite3 # Banco SQLite
+├── app.py                  # Arquivo principal com as rotas
+├── model/                  # Modelos do SQLAlchemy
+│   ├── __init__.py
+│   ├── base.py
+│   ├── treino.py
+│   ├── treino_exercicio.py
+│   └── exercicio.py
+├── schemas/                # Schemas Pydantic
+│   ├── __init__.py
+│   ├── treino.py
+│   ├── exercicio.py
+│   └── error.py
+├── static/uploads/         # Imagens de exercícios
+├── database/db.sqlite3     # Banco SQLite
 ├── logger.py
 └── requirements.txt
 
-yaml
-Copy
-Edit
+---
+
+## 📦 Instalação Manual
+
+1. Clone este repositório:
+   git clone https://github.com/seu-usuario/workout-builder-api.git
+   cd workout-builder-api
+
+2. Crie um ambiente virtual:
+   python -m venv venv
+   source venv/bin/activate  # Linux/Mac
+   venv\Scripts\activate     # Windows
+
+3. Instale as dependências:
+   pip install -r requirements.txt
+
+4. Execute a aplicação:
+   flask --app app run --host 0.0.0.0 --port 5000
+
+A API ficará disponível em:  
+👉 http://localhost:5000
 
 ---
 
-## 📦 Instalação
+## 🐳 Executando com Docker
 
-1. Clone este repositório:
+### Usando apenas Docker
 
-```bash
-git clone https://github.com/seu-usuario/workout-builder-api.git
-cd workout-builder-api
-Crie um ambiente virtual:
+1. Construa a imagem:
+   docker build -t meu_app_api:dev .
 
-bash
-Copy
-Edit
-python -m venv venv
-source venv/bin/activate  # ou venv\Scripts\activate no Windows
-Instale as dependências:
+2. Rode o container:
+   docker run --rm -p 5000:5000 meu_app_api:dev
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Execute a aplicação:
+---
 
-bash
-Copy
-Edit
-flask --app app run --host 0.0.0.0 --port 5000
+### Usando Docker Compose
+
+1. Suba os containers:
+   docker compose up --build
+
+2. Volumes montados automaticamente:
+   - database/ → banco SQLite  
+   - static/uploads/ → imagens  
+   - log/ → logs  
+   - instance/ → configs extras do Flask  
+
+---
+
+## 🌐 Endpoints principais
+
+- Swagger UI → http://localhost:5000/openapi/swagger  
+- ReDoc → http://localhost:5000/openapi/redoc  
+- RapiDoc → http://localhost:5000/openapi/rapidoc  
+- Exercícios → GET /exercicios  
+- Treinos → GET /treinos

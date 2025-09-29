@@ -1,0 +1,16 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: meu_app_api:dev
+    container_name: meu_app_api
+    ports:
+      - "5000:5000"
+
+    volumes:
+      # keep data/uploads/logs across rebuilds (optional but handy)
+      - ./database:/app/database
+      - ./static/uploads:/app/static/uploads
+      - ./log:/app/log
+      - ./instance:/app/instance

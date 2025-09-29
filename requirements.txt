@@ -1,3 +1,4 @@
+Flask
 annotated-types==0.7.0
 blinker==1.9.0
 click==8.2.1
@@ -17,3 +18,7 @@ SQLAlchemy-Utils==0.41.2
 typing-inspection==0.4.1
 typing_extensions==4.14.0
 Werkzeug==3.1.3
+requests
+python-dotenv
+werkzeug
+pydantic

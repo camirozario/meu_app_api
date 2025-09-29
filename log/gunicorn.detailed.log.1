@@ -1,95 +1,48 @@
-[2025-07-06 17:08:20,621] ERROR log_exception() L875  Exception on /exercicios [GET] - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
-Traceback (most recent call last):
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ~^^^^^^^^^^^^^^^^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_openapi3\scaffold.py", line 123, in view_func
-    response = func(**func_kwargs)
-  File "C:\Users\camil\Documents\MVP\meu_app_api\app.py", line 202, in get_exercicios
-    exercicios = session.query(Exercicio).all()
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\query.py", line 2704, in all
-    return self._iter().all()  # type: ignore
-           ~~~~~~~~~~^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\query.py", line 2857, in _iter
-    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
-                                                  ~~~~~~~~~~~~~~~~~~~~^
-        statement,
-        ^^^^^^^^^^
-        params,
-        ^^^^^^^
-        execution_options={"_sa_orm_load_options": self.load_options},
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
-    return self._execute_internal(
-           ~~~~~~~~~~~~~~~~~~~~~~^
-        statement,
-        ^^^^^^^^^^
-    ...<4 lines>...
-        _add_event=_add_event,
-        ^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2241, in _execute_internal
-    conn = self._connection_for_bind(bind)
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2110, in _connection_for_bind
-    return trans._connection_for_bind(engine, execution_options)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<string>", line 2, in _connection_for_bind
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 1189, in _connection_for_bind
-    conn = bind.connect()
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 3273, in connect
-    return self._connection_cls(self)
-           ~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
-    self._dbapi_connection = engine.raw_connection()
-                             ~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 3297, in raw_connection
-    return self.pool.connect()
-           ~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
-    return _ConnectionFairy._checkout(self)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\base.py", line 1264, in _checkout
-    fairy = _ConnectionRecord.checkout(pool)
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
-    rec = pool._do_get()
-  File "C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\impl.py", line 168, in _do_get
-    raise exc.TimeoutError(
-    ...<4 lines>...
-    )
-sqlalchemy.exc.TimeoutError: QueuePool limit of size 5 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
-[2025-07-06 17:08:20,632] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 17:08:20] "GET /treinos HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 17:08:20,633] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 17:08:20] "GET /exercicios HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 17:08:20,634] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 17:08:20] "GET /exercicios HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 17:08:20,634] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 17:08:20] "GET /exercicios HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 17:08:20,635] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 17:08:20] "GET /exercicios HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 17:08:20,642] ERROR upload_exercicio() L127  Erro ao salvar exercício com imagem: 'Exercicio' object has no attribute 'treino_id' - call_trace=C:\Users\camil\Documents\MVP\meu_app_api\app.py L127 
-[2025-07-06 17:08:20,693] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 17:08:20] "[35m[1mGET /exercicios HTTP/1.1[0m" 500 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 17:08:20,696] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 17:08:20] "[31m[1mPOST /upload_exercicio HTTP/1.1[0m" 400 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 22:35:51,440] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+[2025-09-28 21:41:50,511] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:41:50] "[31m[1mDELETE /treino?id=2 HTTP/1.1[0m" 405 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:43:01,831] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://192.168.0.13:5000 - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 22:35:51,441] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 22:35:54,584] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 22:35:54] "[32mGET / HTTP/1.1[0m" 302 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 22:35:54,659] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 22:35:54] "GET /openapi/ HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 22:35:54,820] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 22:35:54] "[36mGET /openapi/swagger/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 22:35:55,991] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 22:35:55] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 22:35:56,023] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 22:35:56] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 22:35:56,030] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 22:35:56] "[36mGET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 22:35:56,041] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 22:35:56] "[36mGET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 22:35:56,349] INFO _log() L97   127.0.0.1 - - [06/Jul/2025 22:35:56] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2025-07-06 22:36:27,963] ERROR upload_exercicio() L127  Erro ao salvar exercício com imagem: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand. - call_trace=C:\Users\camil\Documents\MVP\meu_app_api\app.py L127 
+ * Running on http://192.168.68.114:5000 - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:43:01,832] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:43:17,872] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:43:17] "GET /treinos HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:43:18,436] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:43:18] "GET /exercicios/todos?page=1&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:43:18,752] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:43:18] "[36mGET /static/uploads/download.jpeg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:43:18,753] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:43:18] "[36mGET /static/uploads/download_1.jpeg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:43:18,753] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:43:18] "[36mGET /static/uploads/supino_63635.webp HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:43:22,383] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:43:22] "OPTIONS /treino?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:43:22,649] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:43:22] "[31m[1mDELETE /treino?id=1 HTTP/1.1[0m" 405 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:45:02,592] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:45:02] "[32mGET / HTTP/1.1[0m" 302 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:45:02,734] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:45:02] "GET /openapi/ HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:45:02,799] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:45:02] "[36mGET /openapi/swagger/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:45:03,740] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:45:03] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:45:03,800] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:45:03] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:45:03,807] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:45:03] "[36mGET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:45:03,813] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:45:03] "[36mGET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:45:04,353] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:45:04] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:46:44,257] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.68.114:5000 - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:46:44,258] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:46:46,302] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:46:46] "[32mGET / HTTP/1.1[0m" 302 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:46:46,373] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:46:46] "GET /openapi/ HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:46:46,455] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:46:46] "[36mGET /openapi/swagger/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:46:47,363] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:46:47] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:46:47,404] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:46:47] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:46:47,411] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:46:47] "[36mGET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:46:47,413] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:46:47] "[36mGET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:46:47,804] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:46:47] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:47:00,304] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:47:00] "GET /treinos HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:47:00,907] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:47:00] "GET /exercicios/todos?page=1&per_page=20&limit_ext=100 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:47:01,219] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:47:01] "[36mGET /static/uploads/download.jpeg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:47:01,220] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:47:01] "[36mGET /static/uploads/download_1.jpeg HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:47:01,220] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:47:01] "[36mGET /static/uploads/supino_63635.webp HTTP/1.1[0m" 304 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:47:02,022] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:47:02] "OPTIONS /treino?id=2 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:47:02,337] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:47:02] "[31m[1mDELETE /treino?id=2 HTTP/1.1[0m" 405 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:47:05,093] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:47:05] "OPTIONS /treino?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:47:05,409] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:47:05] "[31m[1mDELETE /treino?id=1 HTTP/1.1[0m" 405 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:48:05,839] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.68.114:5000 - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2025-09-28 21:51:37,239] INFO _log() L97   127.0.0.1 - - [28/Sep/2025 21:51:37] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Users\camil\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
